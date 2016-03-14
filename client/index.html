@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+  <script
+			  src="https://code.jquery.com/jquery-1.12.1.min.js"
+			  integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I="
+			  crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <p>Resize the browser window to see the effect.</p>
+  <div class="row">
+    <div class="col-sm-5">
+        <input type="text" class="form-control" name="contenu" id="contenu" oninput="$.post('/qrcode',{code:$('#contenu').val()},function(data){console.log(btoa(data));$('#image').attr('src','data:image/svg+xml;base64,'+btoa(data))},'html')"/>
+        <button type="button" class="btn btn-info btn-sm" >QRCode</button> 
+    </div>
+    <div class="col-sm-7" ><img src='' id="image"/></div>
+  </div>
+</div>   
+</body>
+</html>
+
