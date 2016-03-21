@@ -1,1 +1,9 @@
 $('#contenu').val()
+
+composant nom {
+    connecteur x;
+    
+    x.push(value);
+    value->x;
+    push(x,value);
+}
