@@ -1,41 +1,4 @@
-//==== Classe Connecteur ====
-function connector(){
-  this.push=push;
-  this.pull=pull;
-  this.call=call;
-  this.connect=connect;
-  this.callback=undefined;
-  this.value=undefined;
-  
-  function push(value){
-    
-    if (value!=undefined) {
-      this.value=value;
-    } 
-      
-    if ((this.callback!=undefined)&&(this.value!=undefined))  this.callback(this.value);
-  }
-  
-  function pull(){
-    var value=undefined;
-    
-    return value;
-  }
-  
-  function call(value){
-    return this.callback(value);
-  }
-  
-  function connect(callback){
-    this.callback=callback;
-    if (this.value!=undefined) {this.push()};
-  }
-  
-  function unconnect(){
-    this.callback=undefined;
-  }
-}
-//=======================
+var connector=require('connecteur.js');
 
 //==== composant:app_expressjs====
 function app_expressjs(){
@@ -44,9 +7,11 @@ function app_expressjs(){
   var parser=require("body-parser");
   
   this.app=new connector();
+  console.log("APP Express :",app);
   this.get_qrcode=new connector();
   
   var app = express();
+  console.log("APP Express :",app);
   app.use(express.static(path.resolve(__dirname,'client')));
   app.post('/qrcode',parser.urlencoded(),myfn.bind(this));
   this.app.push(app);
@@ -81,8 +46,6 @@ var appjs=new app_expressjs();
 appjs.app.connect(new Serveur_HTTP().start);
 appjs.get_qrcode.connect(function (value){return generate_qrcode(value.code,value.format)});
 
-var t='string';
-console.log(t);
 //==== composant:generateur_qrcode ====
 var qr=require("qr-image");
 

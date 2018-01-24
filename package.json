@@ -1,13 +1,14 @@
 {
-  "name": "chat-example",
+  "name": "test-qrcode",
   "version": "0.0.0",
-  "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
+  "description": "Server side QR Code generator to learn nodejs, express, bootstrap",
   "main": "start-test.js",
   "repository": "",
-  "author": "Mostafa Eweda <mo.eweda@gmail.com>",
+  "author": "Mermoz21 at cloud9",
   "dependencies": {
-    "async": "~0.2.8",
     "express": "~3.2.4",
-    "socket.io": "~0.9.14"
+    "qr-image": "~3.1.10",
+    "bootstrap": "~3.3.6",
+    "body-parser": "~1.15.0"
   }
 }
