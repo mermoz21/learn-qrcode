@@ -7,7 +7,6 @@ function app_expressjs(){
   var parser=require("body-parser");
   
   this.app=new connector();
-  console.log("APP Express :",app);
   this.get_qrcode=new connector();
   
   var app = express();
